@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Get Knowledge</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h1>Get Knowledge</h1>
+
+<form action="#" th:action="@{/lookup}" th:object="${definition}" method="post">
+    <p>
+        Term: <input type="text" th:field="*{term}">
+    </p>
+    <p>
+        <input type="submit" value="Submit"/> <input type="reset" value="Reset">
+    </p>
+</form>
+
+</body>
+</html>
