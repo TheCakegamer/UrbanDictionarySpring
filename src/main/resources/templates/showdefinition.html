@@ -20,6 +20,11 @@
             </nav>
             <div class="jumbotron">
                 <h2 th:text="${definitionList.term}"></h2>
+                <div th:each="gifdisplay: ${definitionList.gif}">
+                    <div th:each="onegif: ${gifdisplay.data}">
+                        <p><a th:href='${onegif.content_url}'>via GIPHY</a></p>
+                    </div>
+                </div>
                 <table class="table-striped" style="border-spacing: 20px; border-collapse: separate">
                     <tr th:each="definitiondisplay: ${definitionList.list}">
                         <td>

@@ -1,4 +1,4 @@
-package ch.bbw.th.urbandictionary;
+package ch.bbw.th.urbandictionary.definition;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

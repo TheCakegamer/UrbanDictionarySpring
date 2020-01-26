@@ -1,5 +1,6 @@
-package ch.bbw.th.urbandictionary;
+package ch.bbw.th.urbandictionary.definition;
 
+import ch.bbw.th.urbandictionary.gif.Gif;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -13,6 +14,7 @@ public class DefinitionList
     private DefinitionObject[] list;
     private String term = "";
     private DefinitionObject first;
+    private Gif gif;
 
     public void initiateList() {
         DefinitionList definition = null;
@@ -44,6 +46,15 @@ public class DefinitionList
             initiateList();
         }
         return list;
+    }
+
+    public Gif getGif() {
+        this.gif.initiateGif(this.term);
+        return gif;
+    }
+
+    public void setGif(Gif gif) {
+        this.gif = gif;
     }
 
     public void setList (DefinitionObject[] list)

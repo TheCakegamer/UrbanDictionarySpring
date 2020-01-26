@@ -1,4 +1,4 @@
-package ch.bbw.th.urbandictionary;
+package ch.bbw.th.urbandictionary.definition;
 
 public class DefinitionObject {
     private String defid;
