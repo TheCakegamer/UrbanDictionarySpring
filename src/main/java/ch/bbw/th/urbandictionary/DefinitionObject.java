@@ -64,6 +64,9 @@ public class DefinitionObject {
     }
 
     public String getDefinition() {
+        definition = definition.replaceAll("\\[","");
+        definition = definition.replaceAll("\\]","");
+
         return definition;
     }
 
@@ -104,6 +107,8 @@ public class DefinitionObject {
     }
 
     public String getExample() {
+        example = example.replaceAll("\\[","");
+        example = example.replaceAll("\\]","");
         return example;
     }
 
