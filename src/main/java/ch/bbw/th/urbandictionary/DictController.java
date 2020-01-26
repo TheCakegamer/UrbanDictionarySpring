@@ -9,13 +9,13 @@ public class DictController {
 
 
     @GetMapping("/lookup")
-    public String sendForm(Definition definition) {
+    public String sendForm(DefinitionList definition) {
 
         return "lookup";
     }
 
     @PostMapping("/lookup")
-    public String processForm(Definition definition) {
+    public String processForm(DefinitionList definition) {
 
         return "showdefinition";
     }

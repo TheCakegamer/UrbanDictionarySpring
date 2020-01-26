@@ -8,8 +8,8 @@
 
 <h1>Result</h1>
 
-<p th:text="'Term: ' + ${definition.term}"></p>
-<p th:text="'Definition: ' + ${definition.definition}"></p>
+<p th:text="'Term: ' + ${definitionList.term}"></p>
+<p th:text="'Definition: ' + ${definitionList.list[0].definition}"></p>
 <a href="/lookup">Submit another message</a>
 
 </body>

@@ -8,7 +8,7 @@
 
 <h1>Get Knowledge</h1>
 
-<form action="#" th:action="@{/lookup}" th:object="${definition}" method="post">
+<form action="#" th:action="@{/lookup}" th:object="${definitionList}" method="post">
     <p>
         Term: <input type="text" th:field="*{term}">
     </p>
