@@ -3,14 +3,41 @@
 <head>
     <title>Show message</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 </head>
 <body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="/lookup">Get Knowledge</a>
+            </nav>
+            <div class="jumbotron">
+                <h2 th:text="${definitionList.term}"></h2>
+                <table class="table-striped" style="border-spacing: 20px; border-collapse: separate">
+                    <tr th:each="definitiondisplay: ${definitionList.list}">
+                        <td>
+                            <b>Definition: </b>
+                            <p th:text="${definitiondisplay.definition}"></p>
+                            <b>Example: </b>
+                            <p th:text="${definitiondisplay.example}"></p>
+                        </td>
+                    </tr>
+                </table>
+                <a href="/lookup">Submit another message</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-<h1>Result</h1>
 
-<p th:text="'Term: ' + ${definitionList.term}"></p>
-<p th:text="'Definition: ' + ${definitionList.list[0].definition}"></p>
-<a href="/lookup">Submit another message</a>
-
+</body>
+</html>
 </body>
 </html>
