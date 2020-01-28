@@ -19,14 +19,11 @@
                 <a class="navbar-brand" href="/lookup">Get Knowledge</a>
             </nav>
             <div class="jumbotron">
-                <h2 th:text="${definitionList.term}"></h2>
-                <div th:each="gifdisplay: ${definitionList.gif}">
-                    <div th:each="onegif: ${gifdisplay.data}">
-                        <p><a th:href='${onegif.content_url}'>via GIPHY</a></p>
-                    </div>
-                </div>
+                <h2 th:text="${response.term}"></h2>
+                <!--<p><a th:href='${response.gif.first.url}'>via GIPHY</a></p>-->
+                <iframe th:src='${response.gif.first.embed_url}' width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a th:href='${response.gif.first.url}'>via GIPHY</a></p>
                 <table class="table-striped" style="border-spacing: 20px; border-collapse: separate">
-                    <tr th:each="definitiondisplay: ${definitionList.list}">
+                    <tr th:each="definitiondisplay: ${response.definitionList.list}">
                         <td>
                             <b>Definition: </b>
                             <p th:text="${definitiondisplay.definition}"></p>

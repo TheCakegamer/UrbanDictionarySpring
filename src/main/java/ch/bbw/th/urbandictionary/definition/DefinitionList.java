@@ -1,6 +1,5 @@
 package ch.bbw.th.urbandictionary.definition;
 
-import ch.bbw.th.urbandictionary.gif.Gif;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -12,14 +11,15 @@ import java.net.URL;
 public class DefinitionList
 {
     private DefinitionObject[] list;
-    private String term = "";
-    private DefinitionObject first;
-    private Gif gif;
+    private String term;
 
-    public void initiateList() {
+    public DefinitionList(String term) {
         DefinitionList definition = null;
+        if (term == null){
+            term = "";
+        }
         try {
-            StringBuilder url = new StringBuilder("https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=" + this.term.replaceAll("\\s+","+"));
+            StringBuilder url = new StringBuilder("https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=" + term.replaceAll("\\s+","+"));
             HttpURLConnection conn = (HttpURLConnection) new URL(url.toString()).openConnection();
             conn.setRequestProperty("x-rapidapi-host", "mashape-community-urban-dictionary.p.rapidapi.com");
             conn.setRequestProperty("x-rapidapi-key", "77c058c434msha022573d7829d07p14fae5jsn784f79a2cae5");
@@ -37,24 +37,12 @@ public class DefinitionList
         }
         if (definition != null) {
             this.list = definition.list;
-            this.first = this.list[0];
+            this.term = term;
         }
     }
 
     public DefinitionObject[] getList() {
-        if(list == null) {
-            initiateList();
-        }
         return list;
-    }
-
-    public Gif getGif() {
-        this.gif.initiateGif(this.term);
-        return gif;
-    }
-
-    public void setGif(Gif gif) {
-        this.gif = gif;
     }
 
     public void setList (DefinitionObject[] list)
@@ -68,14 +56,6 @@ public class DefinitionList
 
     public void setTerm(String term) {
         this.term = term;
-    }
-
-    public DefinitionObject getFirst() {
-        return first;
-    }
-
-    public void setFirst(DefinitionObject first) {
-        this.first = first;
     }
 
     @Override

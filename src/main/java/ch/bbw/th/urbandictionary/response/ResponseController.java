@@ -1,22 +1,22 @@
-package ch.bbw.th.urbandictionary.definition;
+package ch.bbw.th.urbandictionary.response;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@Controller
-public class DictController {
 
-
+@Controller("/lookup")
+public class ResponseController {
     @GetMapping("/lookup")
-    public String sendForm(DefinitionList definition) {
+    public String sendForm(Response response) {
 
         return "lookup";
     }
 
     @PostMapping("/lookup")
-    public String processForm(DefinitionList definition) {
+    public String processForm(Response response) {
 
         return "showdefinition";
     }
 }
+

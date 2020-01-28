@@ -19,7 +19,7 @@
                 <a class="navbar-brand" href="/lookup">Get Knowledge</a>
             </nav>
             <div class="jumbotron">
-                <form action="#" th:action="@{/lookup}" th:object="${definitionList}" method="post">
+                <form action="#" th:action="@{/lookup}" th:object="${response}" method="post">
                     <p>
                         Term: <input type="text" th:field="*{term}">
                     </p>

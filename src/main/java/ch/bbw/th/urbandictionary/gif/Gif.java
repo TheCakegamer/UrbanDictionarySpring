@@ -1,6 +1,5 @@
 package ch.bbw.th.urbandictionary.gif;
 
-import ch.bbw.th.urbandictionary.definition.DefinitionList;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -8,23 +7,30 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Arrays;
 
 public class Gif {
     private Data[] data;
     private String term;
+    private Data first;
 
     public Data[] getData() {
-        initiateGif(term);
         return data;
+    }
+
+    public Data getFirst(){
+        return getData()[0];
     }
 
     public void setData(Data[] data) {
         this.data = data;
     }
 
-    public void initiateGif(String term) {
+    public Gif(String term) {
+        if (term == null){
+            term = "";
+        }
         Gif gif = null;
-        this.term = term;
         try {
             StringBuilder url = new StringBuilder("https://api.giphy.com/v1/gifs/search?api_key=t4OPZDGW4I9Ghz1jcOD1DXIgiuoLyCYF&q=" + term.replaceAll("\\s+", "+") + "&limit=1&offset=0");
             HttpURLConnection conn = (HttpURLConnection) new URL(url.toString()).openConnection();
@@ -41,13 +47,14 @@ public class Gif {
             e.printStackTrace();
         }
         if (gif != null) {
+            this.term = term;
             this.data = gif.data;
         }
     }
 
     @Override
     public String toString() {
-        return "ClassPojo [data = " + data + "]";
+        return "ClassPojo [data = " + Arrays.toString(data) + "]";
     }
 
 }
